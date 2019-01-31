@@ -1,0 +1,135 @@
+/* 根菜单视图(ul) */
+.rootView-ul{
+    width: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+/* 子级菜单视图(ul) */
+.subView-ul{
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 5px 0 5px 20px;
+}
+/* 菜单(li) */
+.rootView-ul > li,.subView-ul > li{
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.rootView-ul > li > div{
+    position: relative;
+     height: 38px;
+ }
+.subView-ul > li > div{
+    position: relative;
+    height: 32px;
+}
+/* 一级菜单(li) */
+.rootView-ul > li > div > a{
+    margin: 0;
+    display: block;
+    padding: 0 30px 0 35px;
+    text-decoration:none;
+}
+.rootView-ul > li > div > a > span,.subView-ul > li > div > a > span{
+    display: block;
+    height: 32px;
+    font-size: 12px;
+    /*造成收缩后显示问题*/
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    padding: 12px 5px 12px 15px;
+}
+/* 图标 */
+.rootView-ul > li > div >i.left,.subView-ul > li > div >i.left{
+    position: absolute;
+    left:15px;
+    width: 20px;
+    height: 38px;
+    line-height: 38px;
+}
+/* 菜单右图标 */
+.rootView-ul > li > div >i.right{
+    position: absolute;
+    width: 20px;
+    top:14px;
+    right:5px;
+    margin-top: -2px;
+}
+
+/* 展开父级菜单图标变化 */
+.rootView-ul > li.active > div > i.right{
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg)
+}
+/* 二级级菜单(li) */
+.subView-ul > li > div >a{
+    display: block;
+    padding-left: 32px;
+    text-decoration:none;
+}
+/* 打开子菜单(ul)*/
+.rootView-ul > li.active > .subView-ul {
+    display: block;
+}
+
+/* 多级菜单 */
+.rootView-ul .subView-ul .subView-ul {
+    padding-left: 20px
+}
+/***************treeView-collapse****************/
+.rootView-ul.treeView-collapse{
+    width: 50px;
+    z-index: 850;
+}
+.rootView-ul.treeView-collapse > li {
+    position: relative;
+    height: 38px;
+}
+.rootView-ul.treeView-collapse > li > div > i.left {
+    position: relative;
+    height: 38px;
+}
+.rootView-ul.treeView-collapse > li > div > a  {
+    border-top-right-radius: 4px
+}
+.rootView-ul.treeView-collapse > li:not(.subView-ul) > div > a {
+    border-bottom-right-radius: 4px
+}
+.rootView-ul.treeView-collapse > li > .subView-ul {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom-right-radius: 4px;
+}
+/* 一级菜单名称(span) 二级菜单view(ul) */
+.rootView-ul.treeView-collapse > li:hover > div > a{
+    display: inline-block !important;
+    top:0;
+    position: absolute;
+    width: 180px;
+    left: 50px;
+}
+.rootView-ul.treeView-collapse > li:hover > .subView-ul {
+    display: block !important;
+    top:0;
+    position: relative;
+    width: 180px;
+    left: 50px;
+}
+ /*隐藏 名称 子菜单 right icon*/
+.rootView-ul.treeView-collapse > li > div > a{
+    display: none !important;
+    -webkit-transform: translateZ(0);
+    padding-left: 2px;
+    margin-left: -2px;
+}
+.rootView-ul.treeView-collapse  > li  > .subView-ul, .rootView-ul.treeView-collapse  > li > div > i.right {
+    display: none !important;
+    -webkit-transform: translateZ(0);
+    margin-left: -2px;
+}

@@ -1,0 +1,151 @@
+/* 根菜单视图(ul) */
+.rootView-ul{
+    width: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+/* 子级菜单视图(ul) */
+.subView-ul{
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 5px 0 5px 20px;
+}
+/* 菜单(li) */
+.viewItem-li{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+/* 一级菜单(li) */
+.rootView-ul > li {
+}
+
+/* 打开子菜单(ul)*/
+.viewItem-li.active > .subView-ul {
+    display: block;
+}
+
+/* 菜单标签 a */
+.itemLabel-a{
+    position: relative;
+    padding: 12px 5px 12px 15px;
+    display: block;
+    text-decoration:none;
+}
+.itemLabel-a > span{
+    /*overflow: hidden; !*自动隐藏文字*!*/
+    /*text-overflow: ellipsis;!*文字隐藏后添加省略号*!*/
+    /*white-space: nowrap;!*强制不换行*!*/
+    /*width: 20em;!*不允许出现半汉字截断*!*/
+}
+/* 一级菜单标签(a),超出显示... */
+.rootView-ul > li > a {
+    height: 42px;
+    padding: 12px 5px 12px 15px;
+    display: block;
+    font-size: 12px;
+    text-decoration:none;
+    /*造成收缩后显示问题*/
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+/* 二级菜单条目(li) */
+.subView-ul  > .viewItem-li {
+    line-height: 25px;
+}
+/* 二级菜单标签(a),超出显示... */
+.subView-ul  > .viewItem-li > a {
+    padding: 5px 5px 5px 15px;
+    display: block;
+    font-size: 12px;
+    text-decoration:none;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+/* 菜单名称 */
+.itemLabel-a > span {
+    border-top-right-radius: 4px;
+}
+/* 一级菜单名称 */
+.rootView-ul > li > a > span {
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+    /*text-overflow:ellipsis;*/
+}
+/* 菜单图标(i) */
+.itemIcon-i{
+    width: 20px;
+}
+/* 菜单右图标 */
+.itemIconRight-i{
+    position: absolute;
+    right: 10px;
+    margin-top: -2px;
+}
+/* 展开父级菜单图标变化 */
+.viewItem-li.active  .itemIconRight-i{
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg)
+}
+/* 多级菜单 */
+.rootView-ul .subView-ul .subView-ul {
+    padding-left: 20px
+}
+/***************treeView-collapse****************/
+.rootView-ul.treeView-collapse{
+    width: 50px;
+    z-index: 850;
+}
+.rootView-ul.treeView-collapse > li {
+    position: relative
+}
+.rootView-ul.treeView-collapse > li > a {
+    margin-right: 0
+}
+.rootView-ul.treeView-collapse > li > a > span {
+    border-top-right-radius: 4px
+}
+.rootView-ul.treeView-collapse > li:not(.subView-ul) > a > span {
+    border-bottom-right-radius: 4px
+}
+.rootView-ul.treeView-collapse > li > .subView-ul {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom-right-radius: 4px;
+}
+/* 一级菜单名称(span) 二级菜单view(ul) */
+.rootView-ul.treeView-collapse > li:hover > a > span,.rootView-ul.treeView-collapse > li:hover > .subView-ul {
+    display: block !important;
+    position: absolute;
+    width: 180px;
+    left: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.rootView-ul.treeView-collapse > li:hover > a {
+    overflow: visible;
+}
+/* 一级菜单的名称 */
+.rootView-ul.treeView-collapse > li:hover > a > span {
+    top: 0;
+    margin-left: -3px;
+    padding: 12px 5px 12px 20px;
+    background-color: inherit;
+}
+.rootView-ul.treeView-collapse > li:hover > .subView-ul {
+    top: 40px;
+    margin-left: -2px
+}
+/* 隐藏 名称 子菜单 right icon*/
+.rootView-ul.treeView-collapse > li > a > span, .rootView-ul.treeView-collapse  > li > .subView-ul, .rootView-ul.treeView-collapse  > li > a > .itemIconRight-i {
+    display: none !important;
+    -webkit-transform: translateZ(0)
+}
